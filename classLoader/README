@@ -1,1 +1,1 @@
-Class loader, which updates modified classes
+Class loader (with internal cache), which updates modified classes
