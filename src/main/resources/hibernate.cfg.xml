@@ -1,0 +1,28 @@
+
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/travelagency</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Rundmc559</property>
+        <property name="hibernate.ddl-auto">create-drop</property>
+        <property name="show_sql">true</property>
+
+        <!-- Specifying Session Context -->
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+        <!-- Mapping With Model Class Containing Annotations -->
+        <mapping class="hibernate.models.Country" />
+        <mapping class="hibernate.models.Hotel" />
+        <mapping class="hibernate.models.Tour" />
+        <mapping class="hibernate.models.User" />
+        <mapping class="hibernate.models.Review" />
+        <mapping class="hibernate.models.Order" />
+    </session-factory>
+</hibernate-configuration>
+
