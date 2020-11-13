@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Countries</title>
+</head>
+<body>
+<div th:each="country : ${countries}">
+    Name - "<a th:href="@{/countries/{id}(id=${country.getCountry_id()})}" th:text="${country.getName()}"></a>"
+</div>
+
+<br/>
+<hr/>
+<a href="/countries/new">Create new country</a>
+
+</body>
+</html>
+<!--${country.getToursId()}-->

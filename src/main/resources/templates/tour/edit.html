@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update tour</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/tours/{id}(id=${tour.getTour_id()})}" th:object="${tour}">
+    <label for="name">Enter new name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+
+    <label for="hotel_id">Enter  new hotel id: </label>
+    <input type="number" th:field="*{hotel}" id="hotel_id"/>
+
+    <label> Choose transfer included:
+        <select th:field="*{transfer_included}">
+            <option th:value="True" th:text="Yes"></option>
+            <option th:value="False" th:text="No"></option>
+        </select>
+    </label>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

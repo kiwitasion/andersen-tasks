@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update review</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/reviews/{id}(id=${review.getReview_id()})}" th:object="${review}">
+    <label for="text">Enter new text: </label>
+    <input type="text" th:field="*{text}" id="text"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>
