@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<p>Id - <a th:text="${tour.tour_id}">VALUE</a></p>
+<p>Name - "<a th:text="${tour.name}">VALUE</a>"</p>
+<p>Hotel id - "<a th:href="@{/hotels/{id}(id=${tour.getHotel().getHotel_id()})}"
+                  th:text="${tour.getHotel().getHotel_id()}"></a>"</p>
+<p>Country id - "<a th:href="@{/countries/{id}(id=${tour.getCountry().getCountry_id()})}"
+                    th:text="${tour.getCountry().getCountry_id()}"></a>"</p>
+<p>Transfer included - "<a th:text="${tour.transfer_included} ? 'Yes' : 'No'"></a>"</p>
+
+<a th:href="@{/tours/{id}/edit(id=${tour.getTour_id()})}">Edit</a>
+
+<form th:method="GET" th:action="@{/tours/{id}/delete(id=${tour.getTour_id()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

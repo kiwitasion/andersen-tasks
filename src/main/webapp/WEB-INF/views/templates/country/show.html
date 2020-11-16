@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<p>Id - <a th:text="${country.country_id}">VALUE</a></p>
+<p>Name - "<a th:text="${country.name}">VALUE</a>"</p>
+
+<a th:href="@{/countries/{id}/edit(id=${country.getCountry_id()})}">Edit</a>
+
+<form th:method="GET" th:action="@{/countries/{id}/delete(id=${country.getCountry_id()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:each="hotel : ${hotels}">
+    Name - "<a th:href="@{/hotels/{id}(id=${hotel.getHotel_id()})}" th:text="${hotel.name}"></a>",
+    Service level -  "<a th:text="${hotel.service_level}"></a>"
+</div>
+
+<br/>
+<hr/>
+<a href="/hotels/new">Create new hotel</a>
+
+</body>
+</html>

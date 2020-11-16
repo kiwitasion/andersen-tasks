@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<p>Id - <a th:text="${hotel.hotel_id}">VALUE</a></p>
+<p>Name - "<a th:text="${hotel.name}"></a>"</p>
+<p>Service level -  "<a th:text="${hotel.service_level}"></a>"</p>
+
+<a th:href="@{/hotels/{id}/edit(id=${hotel.getHotel_id()})}">Edit</a>
+<form th:method="GET" th:action="@{/hotels/{id}/delete(id=${hotel.getHotel_id()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

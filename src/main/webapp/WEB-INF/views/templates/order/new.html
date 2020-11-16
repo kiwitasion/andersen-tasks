@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<form th:method="POST" th:action="@{/orders}" th:object="${order}">
+    <label for="number">Enter number: </label>
+    <input type="text" th:field="*{number}" id="number"/>
+
+    <label for="price">Enter price: </label>
+    <input type="number" th:field="*{price}" id="price"/>
+
+    <label for="user_id">Enter user id: </label>
+    <input type="number" th:field="*{user.user_id}" id="user_id"/>
+
+    <label for="tour">Enter tour id: </label>
+    <input type="number" th:field="*{tour.tour_id}" id="tour"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

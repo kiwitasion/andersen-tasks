@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<form th:method="POST" th:action="@{/hotels}" th:object="${hotel}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <label> Choose service level:
+        <select th:field="*{service_level}">
+            <option th:value="Low" th:text="Low"></option>
+            <option th:value="Medium" th:text="Medium"></option>
+            <option th:value="High" th:text="High"></option>
+            <option th:value="Lux" th:text="Lux"></option>
+        </select>
+    </label>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

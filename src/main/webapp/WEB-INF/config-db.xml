@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <import resource="config-view.xml"/>
+
+    <context:component-scan base-package="ru.kivit"/>
+
+<!--         Data source bean     spring.datasource.driver-class-name=com.mysql.jdbc.Driver-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/travelagency?useUnicode=true&amp;serverTimezone=UTC"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Rundmc559"/>
+    </bean>
+
+    <!--     JDBC template bean    -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+<!--     DAO beans    -->
+    <bean id="countryDAO"
+          class="ru.kivit.dao.CountryDAO">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="hotelDAO"
+          class="ru.kivit.dao.HotelDAO">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="orderDAO"
+          class="ru.kivit.dao.OrderDAO">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="reviewDAO"
+          class="ru.kivit.dao.ReviewDAO">
+<!--        <constructor-arg ref="reviewRepo"/>-->
+    </bean>
+    <bean id="tourDAO"
+          class="ru.kivit.dao.TourDAO">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="userDAO"
+          class="ru.kivit.dao.UserDAO">
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
+
+<!--    Controller beans   -->
+
+    <bean id="countryController"
+          class="ru.kivit.controllers.CountryController">
+        <constructor-arg ref="countryDAO"/>
+    </bean>
+
+    <bean id="hotelController"
+          class="ru.kivit.controllers.HotelController">
+        <constructor-arg ref="hotelDAO"/>
+    </bean>
+
+    <bean id="orderController"
+          class="ru.kivit.controllers.OrderController">
+        <constructor-arg ref="orderDAO"/>
+    </bean>
+
+    <bean id="reviewController"
+          class="ru.kivit.controllers.ReviewController">
+        <constructor-arg ref="reviewDAO"/>
+    </bean>
+    <bean id="tourController"
+          class="ru.kivit.controllers.TourController">
+        <constructor-arg ref="tourDAO"/>
+    </bean>
+
+    <bean id="userController"
+          class="ru.kivit.controllers.UserController">
+        <constructor-arg ref="userDAO"/>
+    </bean>
+
+</beans>

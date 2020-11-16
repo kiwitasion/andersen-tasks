@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<form th:method="POST" th:action="@{/reviews}" th:object="${review}">
+    <label for="hotel_id">Enter hotel id: </label>
+    <input type="number" th:field="*{hotel.hotel_id}" id="hotel_id"/>
+
+    <label for="feedback">Enter text: </label>
+    <input type="text" th:field="*{text}" id="feedback"/>
+
+    <label for="user_id">Enter user id: </label>
+    <input type="number" th:field="*{user.user_id}" id="user_id"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

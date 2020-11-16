@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:each="tour : ${tours}">
+    Name - "<a th:href="@{/tours/{id}(id=${tour.getTour_id()})}" th:text="${tour.name}"></a>"
+</div>
+
+<br/>
+<hr/>
+<a href="/tours/new">Create new tour</a>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<p>Id - <a th:text="${review.review_id}">VALUE</a></p>
+
+<p>Hotel id - "<a th:href="@{/hotels/{id}(id=${review.getHotel().getHotel_id()})}"
+               th:text="${review.getHotel().getHotel_id()}"></a>"</p>
+<p>Text - "<a th:text="${review.text}"></a>"</p>
+<p>User - "<a th:href="@{/users/{id}(id=${review.getUser().getUser_id()})}"
+              th:text="${review.getUser().getUser_id()}"></a>"</p>
+
+<a th:href="@{/reviews/{id}/edit(id=${review.getReview_id()})}">Edit</a>
+
+<form th:method="GET" th:action="@{/reviews/{id}/delete(id=${review.getReview_id()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
