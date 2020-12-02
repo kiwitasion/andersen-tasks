@@ -26,8 +26,8 @@ public class Hotel {
     @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Review> reviews = new HashSet<>();
-
     private String name;
+    @Enumerated(EnumType.STRING)
     private ServiceLevel service_level;
 
     public Hotel() {
@@ -37,10 +37,6 @@ public class Hotel {
         this.name = name;
         this.service_level = serviceLevel;
     }
-
-//    public ServiceLevel getService_level() {
-//        return service_level;
-//    }
 
     public void setReviews(Review review) {
         reviews.add(review);
