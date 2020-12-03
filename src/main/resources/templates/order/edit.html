@@ -8,7 +8,7 @@
 
 <form th:method="POST" th:action="@{/orders/{id}(id=${order.getOrder_id()})}" th:object="${order}">
     <label for="number">Enter new number: </label>
-    <input type="text" th:field="*{number}" id="number"/>
+    <input type="number" th:field="*{number}" id="number"/>
 
     <label for="price">Enter new price: </label>
     <input type="number" th:field="*{price}" id="price"/>

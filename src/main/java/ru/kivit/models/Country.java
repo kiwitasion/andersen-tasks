@@ -24,15 +24,7 @@ public class Country {
 
     private String name;
 
-    public Country() {
-    }
-
-    public Country(String name) {
-        this.name = name;
-    }
-
-
-    public void setTour(Tour tour) {
+    public void addTour(Tour tour) {
         tours.add(tour);
     }
 

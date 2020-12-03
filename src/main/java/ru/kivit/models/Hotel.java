@@ -27,18 +27,11 @@ public class Hotel {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Review> reviews = new HashSet<>();
     private String name;
+
     @Enumerated(EnumType.STRING)
     private ServiceLevel service_level;
 
-    public Hotel() {
-    }
-
-    public Hotel(String name, ServiceLevel serviceLevel) {
-        this.name = name;
-        this.service_level = serviceLevel;
-    }
-
-    public void setReviews(Review review) {
+    public void addReview(Review review) {
         reviews.add(review);
     }
 

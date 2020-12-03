@@ -21,14 +21,7 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private String number;
+    private Long number;
     private Integer price;
 
-    public Order() {
-    }
-
-    public Order(String number, Integer price) {
-        this.number = number;
-        this.price = price;
-    }
 }

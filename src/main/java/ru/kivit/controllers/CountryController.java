@@ -1,6 +1,7 @@
 package ru.kivit.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import ru.kivit.services.CountryService;
 
 @Controller
 @RequestMapping("/countries")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class CountryController {
 
     private final CountryService service;
@@ -30,6 +32,7 @@ public class CountryController {
         Country country = service.findById(id);
         model.addAttribute("country", country);
         return "country/show";
+
     }
 
     @GetMapping("/new")

@@ -32,15 +32,8 @@ public class Tour {
     private String name;
     private Boolean transfer_included;
 
-    public Tour() {
-    }
 
-    public Tour(String name, Boolean transfer_included) {
-        this.name = name;
-        this.transfer_included = transfer_included;
-    }
-
-    public void setOrder(Order order) {
+    public void addOrder(Order order) {
         orders.add(order);
     }
 

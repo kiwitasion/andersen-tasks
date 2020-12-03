@@ -23,13 +23,6 @@ public class Review {
 
     private String text;
 
-    public Review() {
-    }
-
-    public Review(String text) {
-        this.text = text;
-    }
-
 }
 
 
